@@ -1,7 +1,8 @@
 /*
- * # 9012 - 괄호
- * 링크: https://www.acmicpc.net/problem/9012
- * 문제: 입력으로 주어진 괄호 문자열이 VPS(Valid Parenthesis String)인지 아닌지를
+ * #9012 - 괄호
+ * - 링크: https://www.acmicpc.net/problem/9012
+ * - 문제
+ * 입력으로 주어진 괄호 문자열의 VPS(Valid Parenthesis String) 여부를
  * 판단해서 그 결과를 YES와 NO로 나타내어야 한다.
  */
 
@@ -60,7 +61,8 @@ function isVps(parenthesisString) {
 		else stack.push(currentParenthesis);
 	}
 
-	// 순회를 마친 뒤, 스택이 비어있다면 모든 괄호가 짝이 맞는다는 의미이므로
-	// true, 아니라면 false를 반환한다.
+	// 순회를 마친 뒤, 스택이 비어있다면
+	// 모든 괄호가 짝이 맞는다는 의미이므로 true,
+	// 아니라면 false를 반환한다.
 	return stack.length === 0 ? true : false;
 }
