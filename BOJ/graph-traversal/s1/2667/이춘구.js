@@ -93,20 +93,18 @@ function searchHousesAround(house) {
 		const destRow = row + rowDelta;
 		const destCol = col + colDelta;
 
-		// 해당 좌표가 지도 내부의 좌표인지 확인한다.
-		const isInMap =
-			0 <= destRow &&
-			destRow < sideLength &&
-			0 <= destCol &&
-			destCol < sideLength;
+		// prettier-ignore
+		// 해당 좌표가 지도의 좌표 범위 내에 존재하는지 확인한다.
+		const isInMap = 
+      0 <= destRow && destRow < sideLength
+      && 
+      0 <= destCol && destCol < sideLength;
 
-		// 지도를 벗어나는 좌표하면 다음 위치의 좌표를 계산한다.
+		// 좌표 범위를 벗어난다면 다음 좌표로 넘어간다.
 		if (!isInMap) continue;
 
-		// 해당 좌표에 집이 있는지 확인한다.
+		// 해당 좌표에 위치한 게 집이라면 좌표를 houses 배열에 넣는다.
 		const isHouse = map[destRow][destCol] === HOUSE;
-
-		// 집이 있다면 houses 배열에 넣는다.
 		if (isHouse) houses.push([destRow, destCol]);
 	}
 
