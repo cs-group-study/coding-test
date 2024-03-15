@@ -44,3 +44,30 @@ function dfs(graph, start) {
 // 1번 컴퓨터부터 시작
 dfs(connectionMap, 1);
 console.log(answer);
+
+/**
+ * BFS
+ * 2606 -  바이러스
+ * 문제 링크 : https://www.acmicpc.net/problem/2606
+ * 문제 :
+ * 1번 컴퓨터가 웜 바이러스에 걸렸을 때, 1번 컴퓨터를 통해 웜 바이러스에 걸리게 되는 컴퓨터의 수를 첫째 줄에 출력한다.
+ */
+
+function bfs(graph, start) {
+	let queue = [start];
+
+	while (queue.length > 0) {
+		const infectedComputer = queue.shift();
+
+		if (visited[infectedComputer]) continue;
+
+		visited[infectedComputer] = true;
+		answer += 1;
+
+		// 감염된 컴퓨터와 연결된 컴퓨터를 넣어준다.
+		queue.push(...(graph[infectedComputer] ?? []));
+	}
+}
+bfs(connectionMap, 1);
+
+console.log(answer - 1);
